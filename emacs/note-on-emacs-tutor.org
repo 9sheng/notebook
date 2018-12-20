@@ -1,0 +1,214 @@
+#+TITLE: Emacs 笔记
+#+STARTUP: hidestars
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worg.css" />
+#+OPTIONS: H:7 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+LANGUAGE: cn-zh
+
+原文见[[http://tuhdo.github.io/emacs-tutor.html][这里]]
+
+* Command Prefix
+
+| 按键           | 说明                 |
+|----------------+----------------------|
+| *C-x*          | Emacs 默认、全局命令 |
+| *C-c*          | 用户自定义命令       |
+| *C-u <number>* | 重复执行命令         |
+| *C-<number>*   | 同上                 |
+
+*M-x* 可以用 *ESC x* 代替。
+* Help
+
+按键后加 *C-h* 会列出所有的以该按键开头的命令， =M-x info-emacs-manual= 或者 *C-h r* ，或者 *<f1> r* 查看帮助文档
+
+| 按键    | 命令                      | 说明                                 |
+|---------+---------------------------+--------------------------------------|
+| *C-h m* | =describe-mode=           | 查看当前 mode 所有按键绑定、帮助文档 |
+| *C-h w* | =where-is=                | 查看命令的绑定按键                   |
+| *C-h c* | =describe-key-briefly=    | 查看按键绑定的命令                   |
+| *C-h k* | =describe-key=            | 查看按键绑定的命令、帮助文档         |
+| *C-h e* | =view-echo-area-messages= | 查看 echo area 的日志                |
+| *C-h v* | =describe-variable=       | 查看变量                             |
+| *C-h a* | =apropos-command=         | 正则查找命令                         |
+
+执行光标前面的一条语句 *C-x C-e* ，选择一个 region， ~M-x eval-region~ ，执行整个文件 ~M-x eval-buffer~
+
+* Bookmark
+| 按键      | 命令                  | 说明                |
+|-----------+-----------------------+---------------------|
+| *C-x r m* | =bookmark-set=        |                     |
+| *C-x r b* | =bookmark-jump=       |                     |
+| *C-x r l* | =bookmark-bmenu-list= | 按 *s* 可保存到文件 |
+
+* Move
+
+| 按键      | 命令                      | 说明                                                     |
+|-----------+---------------------------+----------------------------------------------------------|
+| *M-r*     |                           | 移到屏幕中间                                             |
+| *M-SPC*   |                           | Kill all spaces except one at point                      |
+| *M-\*     |                           | Kill all spaces                                          |
+| *M-;*     |                           | 增加注释，如果有选中内容，则注释内容，否则在行尾添加注释 |
+| *M-/*     |                           | 自动补齐单词                                             |
+| *C-y M-y* |                           | 剪贴、粘贴                                               |
+| *C-x C-x* | =exchange-point-and-mark= | 选中一块内容，如果丢失了，这个按键可以找回来             |
+| *C-/*     |                           | undo                                                     |
+| *C-x u*   |                           | undo                                                     |
+| *C-u C-s* |                           | regexp search                                            |
+
+* Ido Mode
+在 ido-mode 中，不同于普通模式，使用 *C-f* 选择文件， *C-d* 选择目录
+
+| 按键      | 命令           |
+|-----------+----------------|
+| *C-x C-s* | =save-buffer=  |
+| *C-x C-w* | =write-buffer= |
+| *C-x k*   | =kill-buffer=  |
+| *C-x o*   | =other-window= |
+
+* Ibuffer Mode
+
+| 按键      | 说明                          |
+|-----------+-------------------------------|
+| *C-x C-b* | 进入 Ibuffer Mode 模式        |
+| */ m*     | filter mode，后面输入 mode 名 |
+| *s*       | sort                          |
+| *m*       | mark                          |
+| *u*       | unmark                        |
+| *A*       | view marked                   |
+| *S*       | save marked                   |
+| *D*       | close marked                  |
+| *V*       | revert  marked                |
+
+* Occur Mode
+按 *M-s o* 列出正则匹配行，使用 *M-g n/p* 跳转到上一处/下一处匹配，*C-x z* 重复上一次命令，接下来可直接用 *z* 重复。 *C-o/o* 打开编辑位置， *e* 直接编辑查询结果， *C-c C-c* 离开编辑模式。
+
+| 按键        | 说明                                                                        |
+|-------------+-----------------------------------------------------------------------------|
+| *M-s h l*   | 高亮匹配行                                                                  |
+| *M-s h r*   | 高亮匹配的关键字                                                            |
+| *M-s h u*   | 删除高亮                                                                    |
+| *M-%*       | 替换                                                                        |
+| *C-M-%*     | 正则表达式替换                                                              |
+| *M-x rgrep* | 调用正则表达式 grep 命令，*C-u* 可以编辑命令结果 *C-u C-u* 可以直接编辑命令 |
+| *C-\*       | 切换输入法  =M-x set-input-method=                                          |
+
+#+BEGIN_SRC org
+cs:ch-fr | buf | pos line | (major minor)
+#+END_SRC
+*cs* 为当前 buffer 的编码模式。 *ch* 为当前文件的修改状态，'-' 文件未被修改， '*' 文件被修改， '%%' 文件只读，'%*' 只读文件被修改。
+
+| 按键        | 说明                            |                  |
+|-------------+---------------------------------+------------------|
+| *C-x RET f* | =set-buffer-file-coding-system= | 设置文件编码格式 |
+| *C-h C*     | =describe-coding-system=        | 查看当文件编码   |
+
+*C-x 5* frame 相关命令
+
+*C-x 0/1/2/3* 关闭窗口，分屏操作， *C-x +* 平均窗口的宽度和高度
+
+*M-PgUp*  *M-PgDn* =scroll-other-window= 下一个窗口滚屏
+
+*C-x 4* 从下一个窗口打开文件
+
+*C-u n* 默认为4次
+
+*C-u C-u C-u C-f*  移动 4^3 个字符
+
+* Dired Mode
+| 按键      | 说明                             |
+|-----------+----------------------------------|
+| *n p*     | 上下移动，前面加数字可以重复执行 |
+| *+*       | 创建子目录                       |
+| *C-x C-f* | 创建新文件                       |
+| *C-o/o*   | 打开选定文件                     |
+| *v*       | 只读方式查看文件                 |
+| *^*       | 打开上一级目录                   |
+| *m*       | 标记文件                         |
+| *% m*     | 正则表达式标记文件               |
+| *% g*     | grep 标记文件                    |
+| *C*       | 将标记的文件 copy 到另一个地方   |
+| *R*       | move                             |
+| *H*       | hardlink                         |
+| *S*       | symbol link                      |
+| *M*       | 修改权限位                       |
+| *d*       | 标记成删除                       |
+| *u*       | 取消标记                         |
+| *X*       | 执行 shell 命令                  |
+| *x*       | 执行操作                         |
+| *!*       | 直接执行 shell 命令 & 异步执行   |
+| *i*       | 将选定的 dir 打开，append 到后面 |
+
+* Registers
+
+| 命令              | 命令                               |
+|-------------------+------------------------------------|
+| *C-x r w REG*     | =window-configuration-to-register= |
+| *C-x r f REG*     | =frame-configuration-to-register=  |
+| *C-x r <spc> REG* | =point-to-register=                |
+| *C-x r j REG*     | =jump-to-register=                 |
+| *C-x r s REG*     | =copy-to-register=                 |
+| *C-x r r REG*     | =copy-rectangle-to-register=       |
+| *C-x r i REG*     | =insert-register=                  |
+
+* Macros
+| 命令              | 说明                  |
+|-------------------+-----------------------|
+| *<f3>* or *C-x (* | Start recording macro |
+| *<f4>* or *C-x )* | Stop recording macro  |
+| *C-x e* or *<f4>* | Playback macro        |
+
+*C-x C-k*
+
+* doxymacs
+
+进入 doxymacs-mode，可以使用以下快捷键：
+
+| 命令      | 说明                         |
+|-----------+------------------------------|
+| *C-c d ?* | 查找当前鼠标点下的符号的文档 |
+| *C-c d r* | 重新扫描tags文件             |
+| *C-c d f* | 为函数插入Doxygen注释        |
+| *C-c d i* | 为文件插入Doxygen注释        |
+| *C-c d ;* | 为当前成员插入Doxygen注释    |
+| *C-c d m* | 插入多行注释                 |
+| *C-c d s* | 插入单行注释                 |
+| *C-c d @* | 插入环绕当前区域的注释       |
+
+* c-ide
+** 基本移动
+| 按键        | 命令                | 说明                 |
+|-------------+---------------------+----------------------|
+| *C-M-f*     | =forward-sexp=      | 跳转到下边匹配的括号 |
+| *C-M-b*     | =backword-sexp=     | 跳转到上边匹配的括号 |
+| *C-M-k*     | =kill-sexp=         |                      |
+| *C-M-a*     | =begining-of-defun= |                      |
+| *C-M-e*     | =end-of-defun=      |                      |
+| *C-M-h*     | =mark-defun=        |                      |
+| *C-M-t*     | =transpose-sexps=   |                      |
+| *C-M-<SPC>* | =mark-sexp=         | 标记括号中的内容     |
+| *C-M-@*     | =mark-sexp=         | 标记括号中的内容     |
+
+** helm-gtags
+| 快捷键    | 命令                               | 说明           |
+|-----------+------------------------------------+----------------|
+| *C-c g s* | =helm-gtags-find-symbol=           | 常用           |
+| *C-c g r* | =helm-gtags-find-rtags=            | *常用*         |
+| *C-c g f* | =helm-gtags-find-files=            | *常用*         |
+| *C-c g a* | =helm-gtags-tags-in-this-function= |                |
+| *C-c g p* | =helm-gtags-tags-find-pattern=     | 正则表达式查找 |
+| *C-c g h* | =helm-gtags-show-stack=            | 常用           |
+| *C-j*     | =helm-gtags-select=                |                |
+| *M-.*     | =helm-gtags-dwim=                  | *常用*         |
+| *M-,!*    | =helm-gtags-pop-stack=             | *常用*         |
+| *C-c ,!*  | =helm-gtags-previous-history=      | 常用           |
+| *C-c .*   | =helm-gtags-next-history=          | 常用           |
+
+** speedbar
+*M-x sr-speedbar-toggle* 进入
+
+*SPC* 打开子节点， *RET* 进入文件， *U* 进入上层目录， *b* 进入 buffer list， *f* 进入 file list
+
+** company
+在 helm 中，打开文件的时候 *C-x C-f* 可以输入 *C-c i* 插入选择的文件路径到当前编辑的文件。
+
+** projectile
+*C-c p a* 在 .h .cpp 之间切换

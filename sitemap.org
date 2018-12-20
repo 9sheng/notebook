@@ -1,0 +1,13 @@
+#+TITLE: sitemap
+
+- gtd
+  - [[file:gtd/task.org][task]]
+- journal
+  - [[file:journal/buddhism-2018.org][功课记录2018]]
+  - [[file:journal/buddhism-2017.org][功课记录2017]]
+  - [[file:journal/buddhism-2016.org][功课记录2016]]
+  - [[file:journal/buddhism-2015.org][功课记录2015]]
+- org
+  - [[file:emacs/org-basic.org][org 入门基础]]
+  - [[file:emacs/note-on-emacs-tutor.org][Emacs 笔记]]
+  - [[file:emacs/emacs-frequently-used.org][Emacs 备忘说明]]

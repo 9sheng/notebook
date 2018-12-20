@@ -1,0 +1,131 @@
+#+TITLE: org 入门基础
+#+STARTUP: hidestars
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worg.css" />
+#+OPTIONS: H:7 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+LANGUAGE: cn-zh
+
+* 基础
+** 视图
+- =TAB= 标题展开
+- =S-TAB= 文档展开
+
+** 移动
+- =C-c C-n= 下一标题
+- =C-c C-p= 上一标题
+- =C-c C-f= 下一同级标题
+- =C-c C-b= 上一同级标题
+- =C-c C-u= 返回上一级标题
+
+** 结构
+- =M-RET= 插入标题
+- =M-S-RET= 插入 TODO 标题
+- =M-left/right= 标题升级、降级
+- =M-S-left/right= 整个子树升级、降级
+- =M-up/down= 子树前移、后移
+
+* 元素
+** 表格
+- =C-c |= 插入表格
+- =C-c C-c= 调整表格，光标不移动
+- =TAB= 调整表格，可能增加新行
+- =S-TAB= 调整表格，可能增加新行
+- =RET= 调整表格，到下一行，可能增加新行
+- =M-left/right= 列左、右移
+- =M-S-left/right= 删除左边、右边列
+- =M-up/down= 行上、下移
+- =M-S-up/down= 行上、下移
+- =C-c -= 插入分割行
+- =C-c RET= 插入分割行
+- =C-c ^= 表格排序
+
+** 列表
+- =M-RET= 插入同级列表项
+- =M-S-up/down= 子树前移、后移
+- =M-left/right= 项目升级、降级
+- =M-S-left/right= 子树升级、降级
+- =C-c -= 列表头循环 ~- + * 1. 1)~
+
+** 日期和时间
+- =C-c .= 插入日期（使用 S-left/right 选择日期）
+- =C-u C-c .= 插入时间
+- =S-left/right= 日期加减一天
+- =S-up/down= 时间项目上加减一
+- =C-c C-d= 增加 DEADLINE
+- =C-c C-s= 增加 SCHEDULED
+- =C-c C-x C-i= 计时开始
+- =C-c C-x C-o= 计时结束
+- =C-c C-x C-e= Update the effort estimate
+- =C-c C-x C-q= 取消当前计时
+- =C-c C-x C-j= 跳到当前有计时的任务
+- =C-c C-x C-r= 增加动态统计表格
+- =C-c C-c= 更新动态统计表格，鼠标必须在 ~#+BEGIN:~ 行
+
+** 脚注
+- =C-c C-x f= 创建或跳转到脚注
+- =C-c C-c= 脚注引用之间跳转
+
+** 超链接
+- =C-c l= 保存当前位置到链接
+- =C-c C-l= 插入、修改链接
+- =C-c C-o= 打开链接
+- =C-c &= 跳转到 =C-c %= 记录的链接
+
+* 过滤
+** 属性
+- =C-c C-x p= 增加
+- =C-c C-x d= 移除
+
+** 标签
+- =C-c C-q= 增加标签
+- =C-c C-c= 同上
+- =C-c \= , =C-c \= Tags 稀疏树
+- =C-c a m= 从所有文件里建立 Tag 树
+- =C-c a M= 从所有文件里建立 Tag 树，只处理 TODO 相关
+
+** 稀疏树
+- =C-c /= 按 tag 选择显示树
+- =C-c / r= 选择显示树，可使用正则匹配
+
+* GTD
+** Agendas
+- =C-c a= 查看日常表
+- =C-c [= 将当前文件加入到日程表中
+- =C-c ]= 将当前文件从日程表中移除
+- =C-c ,= 遍历日常表文件
+
+** Capture - Refile - Archive
+- =C-c c= 新建任务
+- =C-c C-c= 保存任务，返回到原始文件
+- =C-c C-k= 中止新建任务
+- =C-c C-w= 强任务移到 refile 中
+- =C-c C-x a= 打包任务
+- =C-c C-x C-s= =C-c $= 打包任务（包括子树）到_archive 文件中
+
+** TODOS
+- =C-c C-t= 增加 TODO，循环状态
+- =S-right/left= 循环状态
+- =C-c / t= TODO 稀疏树
+- =C-c a t= 全局 TODO 树
+- =M-S-RET= 插入 TODO 标题
+- =C-c ,= 增加优先级
+- =S-up/down= 提升、降低优先级
+- =C-c C-c= 改变 checkbox 状态
+- =M-S-RET= 插入有 checkbox 的同级列表项
+* 杂项
+** COMMENT 代码
+- =C-c '= 修改代码
+- =C-c C-v t= Extracting code...
+** 样式
+#+BEGIN_SRC c++
+*bold*  _underline_  +strike  through+  /italic/  =verbatim=  ~code~
+#+END_SRC
+
+*bold*  _underline_  +strike  through+  /italic/  =verbatim=  ~code~
+
+** 导出
+- =C-c C-e= 导出
+- =C-c C-e #= 插入文章属性头
+
+* 参考文档
+- [[file:../pdf/orgcard.pdf][orgcard.pdf]]
+- [[file:../pdf/orgguide.pdf][orgguide.pdf]]

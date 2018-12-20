@@ -1,0 +1,14 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+TAGS: OFFICE(o) RESEARCH(r) DIARY(d) BOOK(b) FILMS(f) IDEA(i) WEB(w) COMPUTER(c)
+
+* Tasks
+
+** TODO [#B] 社招                                              :OFFICE:work:
+   SCHEDULED: <2018-12-15 六>
+*** 联系应聘者
+    DEADLINE: <2018-12-17 一>
+*** 面试
+
+** TODO [#C] 完成技术书籍阅读                                         :BOOK:
+   DEADLINE: <2018-12-31 一>

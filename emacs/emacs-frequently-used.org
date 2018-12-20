@@ -1,0 +1,47 @@
+#+TITLE: Emacs 备忘说明
+#+STARTUP: hidestars
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worg.css" />
+#+OPTIONS: H:7 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+LANGUAGE: cn-zh
+
+* Occur-mode
+=C-c p o= 打开 projectile occur，在 *occur-mode* 中可使用
+- =C-n/p= 向上、向下
+- =o= 跳转到原文档
+- =C-o= 移动原文档
+- =g= 刷新原文档
+
+* 常用操作
+=C-c i= 在代码模式中可查找函数
+** 换行
+- *M-x toggle-truncate-lines* 换行、不换行
+- *M-x customize-option* ，输入 =truncate-partial-width-windows= 改为 =off=
+- *M-x auto-fill-mode* 自动换行模式，会插入回车符号
+** sudo 打开文件
+*C-x C-f* 时候输入 =/sudo::/path/to/file=
+** 插入文件路径
+*C-x C-f* 打开文件时，按 *C-c i* 可将路径插入到文件中
+
+** TAB SPACE
+*M-x tabify* 转化为TAB， *M-x untabify* TAB 变为空格，以下配置再保存文件前，将空格变为TAB
+
+#+BEGIN_SRC lisp
+  ;; Add save buffer hook
+  (defun reed_update_file()
+    "Convert spaces to tabs, and remove useless spaces"
+    (interactive)
+
+    ;; Remove useless spaces
+    (edit-picture)
+    (picture-mode-exit)
+
+    ;; Convert spaces to tabs
+    (tabify (point-min) (point-max))
+
+    ;; Save buffer
+    ;;(basic-save-buffer)
+    )
+
+  ;; Add-hook to automate the task when we save files
+  (add-hook 'write-file-hooks 'reed_update_file)
+#+END_SRC

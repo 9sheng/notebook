@@ -3,7 +3,8 @@
 - gtd
   - [[file:gtd/task.org][task]]
 - journal
-  - [[file:journal/buddhism-2018.org][功课记录2018]]
+  - [[file:journal/buddhism-2019.org][功课记录2019]]  [[file:journal/reading-2019.org][阅读记录2019]]
+  - [[file:journal/buddhism-2018.org][功课记录2018]]  [[file:journal/reading-2018.org][阅读记录2018]]
   - [[file:journal/buddhism-2017.org][功课记录2017]]
   - [[file:journal/buddhism-2016.org][功课记录2016]]
   - [[file:journal/buddhism-2015.org][功课记录2015]]

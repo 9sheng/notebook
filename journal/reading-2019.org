@@ -1,0 +1,13 @@
+#+TITLE: 阅读记录2019
+#+STARTUP: hidestars
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worg.css" />
+#+OPTIONS: H:7 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+LANGUAGE: cn-zh
+
+* 佛教
+
+* 技术
+
+* 人文
+
+* 科普

@@ -1,0 +1,29 @@
+#+TITLE: 阅读记录2018
+#+STARTUP: hidestars
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worg.css" />
+#+OPTIONS: H:7 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+LANGUAGE: cn-zh
+
+* 佛教
+- 《莲花生大士传》，完成
+- 《密勒日巴尊者传》，完成
+- 髻智尊者：《亲近释迦牟尼佛：从巴利藏经看佛陀的一生》，完成
+- 星云大师：《释迦牟尼佛传》，完成
+- 格桑曲吉嘉措：《藏传释迦牟尼佛传》，完成
+- 明一法师：《不理》，完成
+- 创古仁波切：《穿越生死》，完成
+- 麦克尔·罗奇格西：《当和尚遇到钻石》， *未开始*
+
+* 技术
+- Agner Fog：《optimizing cpp》，完成
+- Martin Kleppmann：《Designing Data Intensive Applications》，完成
+
+* 人文
+- 唐家三少：《斗罗大陆》，完成
+- 沈复：《浮生六记》，完成
+- Atul Gawande：《最好的告别》， *未开始*
+- 黄仁宇：《万历十五年》，完成
+- 金庸：《天龙八部》，完成
+
+* 科普
+- 菠萝：《癌症·真相》， *未开始*

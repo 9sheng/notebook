@@ -6,9 +6,9 @@
       '(
         ;; These are the main web files
         ("org-notes"
-         :base-directory "~/workspace/notebook"
+         :base-directory "./"
          :base-extension "org\\|md"
-         :publishing-directory "~/workspace/notebook/published"
+         :publishing-directory "./published"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4
@@ -24,7 +24,7 @@
 
         ;; These are static files (images, pdf, etc)
         ("org-static"
-         :base-directory "~/workspace/notebook"
+         :base-directory "./"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|txt\\|asc"
          :publishing-directory "~/workspace/notebook/published"
          :recursive t
